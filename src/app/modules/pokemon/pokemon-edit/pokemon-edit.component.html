@@ -1,0 +1,29 @@
+<div class="container">
+    <h3>{{ pokemon[0].name }}</h3>
+    <form [formGroup]="pokemonForm" id="pokemonForm">
+        <label class="item-1">
+            Nombre:
+            <input type="text" formControlName="name" id="nameInput" class="input-field" [ngClass]="{ 'input-invalid' : !pokemonForm.get('name')?.valid && (pokemonForm.get('name')?.touched || pokemonForm.get('name')?.dirty) }">
+        </label>
+        <label class="item-3">
+            Imagen:
+            <input type="text" formControlName="image" id="imageInput" class="input-field" placeholder="url" [ngClass]="{ 'input-invalid' : !pokemonForm.get('image')?.valid && (pokemonForm.get('image')?.touched || pokemonForm.get('image')?.dirty) }">
+        </label>
+        <label class="item-2">
+            Ataque:
+            0
+            <input type="range" min="0" max="100" id="attackInput" [title]="pokemonForm.get('attack')!.value" formControlName="attack" class="slider">
+            100
+        </label>
+        <label class="item-4">
+            Defensa:
+            0
+            <input type="range" min="0" max="100" id="defenseInput" [title]="pokemonForm.get('defense')!.value" formControlName="defense" class="slider">
+            100
+        </label>
+    </form>
+    <div class="buttons">
+        <button (click)="editPokemon()" id="editButton" [disabled]="!pokemonForm.valid"><mat-icon class="material-symbols-outlined">save</mat-icon>Guardar</button>
+        <button (click)="closePokemon()" id="closePokemon"><mat-icon class="material-symbols-outlined">close</mat-icon>Cancelar</button>
+    </div>
+</div>

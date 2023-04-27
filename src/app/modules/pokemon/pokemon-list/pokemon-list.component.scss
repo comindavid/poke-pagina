@@ -1,0 +1,100 @@
+$primary-color: #6657F5;
+$primary-color-dark: #3d348f;
+$secondary-color: #9DADBA;
+
+.container {
+    margin: 0 4rem;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+
+.search-bar {
+    margin: 1rem 0 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    input {
+        border: 2px solid $secondary-color;
+        border-radius: 5px;
+        width: 15rem;
+        height: 2.5rem;
+        padding-left: 2.5rem;
+        font-size: 1.2rem;
+        display: block;
+        background: url("/assets/icons/search.svg") top left no-repeat;
+        background-size: 2rem; 
+    };
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $primary-color;
+        width: 8rem;
+        height: 2.5rem;
+        border-radius: 5px;
+        color: white;
+        font-size: 1rem;
+        margin: 0 .2rem;
+        cursor: pointer;
+        mat-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+            margin-bottom: .5rem; 
+        };
+    };
+    button:hover {
+        background-color: $primary-color-dark;
+    }
+}
+
+.grid {
+    background-color: white;
+    margin-bottom: 2rem;
+    table {
+        padding: 8px;
+        border-spacing: 1rem;
+        width: 100%;
+        border-collapse: collapse;
+        tr th {
+            font-weight: 900;
+            font-size: 1.2rem;
+            padding: .9rem;
+        };
+        tr td {
+            padding: .5rem;
+            font-size: 1rem;
+            button {
+                color: $primary-color;
+                cursor: pointer;
+                mat-icon {
+                    background-color: white;
+                }
+            };
+            button:hover {
+                mat-icon {
+                    color: $primary-color-dark;
+                }
+            }
+        };
+    }
+};
+
+table, th, td {
+    border: 1.5px solid $secondary-color
+};
+
+.child {
+    border: 2px solid $secondary-color;
+    background-color: white;
+};
+
+.text-align-center {
+    text-align: center;
+}

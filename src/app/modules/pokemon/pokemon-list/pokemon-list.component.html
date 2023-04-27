@@ -1,0 +1,32 @@
+<div class="container flex">
+    <h2 class="title">{{ title }}</h2>
+    <div class="search-bar">
+        <input type="text" id="searchBar" placeholder="Buscar" (keyup)="searchPokemon()" [(ngModel)]="searchInput"/>
+        <button (click)="createPokemon()" id="createPokemon"><mat-icon class="material-symbols-outlined">add</mat-icon> Nuevo</button>
+    </div>
+    <div class="grid" *ngIf="pokemonList.length > 0">
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Imagen</th>
+                <th>Ataque</th>
+                <th>Defensa</th>
+                <th>Acciones</th>
+            </tr>
+            <tr *ngFor="let pokemon of pokemonList" id="pokemonRows">
+                <td id="pokemonName">{{ pokemon.name }}</td>
+                <td class="text-align-center">
+                    <img id="pokemonImage" [src]="pokemon.image" alt="" height="30" width="30">
+                </td>
+                <td id="pokemonAttack">{{ pokemon.attack }}</td>
+                <td id="pokemonDefense">{{ pokemon.defense }}</td>
+                <td class="text-align-center">
+                    <button (click)="editPokemon(pokemon)" id="editPokemon"><mat-icon class="material-symbols-outlined">border_color</mat-icon></button>
+                    <button style="margin-left: 2rem;" (click)="deletePokemon(pokemon)" id="deletePokemon"><mat-icon class="material-symbols-outlined">delete_forever</mat-icon></button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <app-pokemon-create *ngIf="showCreate" (event)="editEvent($event)" class="child"></app-pokemon-create>
+    <app-pokemon-edit [pokemon]="pokemonList" *ngIf="showEdit" class="child" (event)="editEvent($event)"></app-pokemon-edit>
+</div>
